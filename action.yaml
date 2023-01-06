@@ -73,11 +73,11 @@ inputs:
     dry-run:
         description: 'Add --dry-run option'
         required: false
-        default: '0'
+        default: 'false'
     debug:
         description: 'Add --debug option'
         required: false
-        default: '0'
+        default: 'false'
 
 runs:
     using: 'docker'
