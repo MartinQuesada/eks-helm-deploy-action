@@ -74,10 +74,12 @@ fi
 
 if [ -n "$DRY_RUN" ]; then
   UPGRADE_COMMAND="${UPGRADE_COMMAND} --dry-run"
+  echo $DRY_RUN
 fi
 
 if [ -n "$DEBUG" ]; then
   UPGRADE_COMMAND="${UPGRADE_COMMAND} --debug"
+  echo $DEBUG
 fi
 
 echo "Executing: ${UPGRADE_COMMAND}"
