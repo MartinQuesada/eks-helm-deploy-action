@@ -72,12 +72,14 @@ if [ -n "$CHART_VERSION" ]; then
   UPGRADE_COMMAND="${UPGRADE_COMMAND} --version ${CHART_VERSION}"
 fi
 
-if [ ${DRY_RUN} == "true" ]; then
+if [ -n "$DRY_RUN" ]; then
   UPGRADE_COMMAND="${UPGRADE_COMMAND} --dry-run"
+  echo $DRY_RUN
 fi
 
-if [ ${DEBUG} == "true" ]; then
+if [ -n "$DEBUG" ]; then
   UPGRADE_COMMAND="${UPGRADE_COMMAND} --debug"
+  echo $DEBUG
 fi
 
 echo "Executing: ${UPGRADE_COMMAND}"
