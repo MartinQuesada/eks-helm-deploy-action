@@ -1,5 +1,5 @@
 # action.yml
-name: 'EKS Helm Deployment'
+name: 'EKS Helm Deployment (with Dry Run)'
 description: 'Deploy a helm chart to EKS cluster.'
 branding:
     icon: anchor
@@ -70,6 +70,15 @@ inputs:
         description: 'AWS region for the helm ECR'
         required: false
         default: ''
+    dry-run:
+        description: 'Add --dry-run option'
+        required: false
+        default: '0'
+    debug:
+        description: 'Add --debug option'
+        required: false
+        default: '0'
+
 runs:
     using: 'docker'
     image: 'Dockerfile'
@@ -94,3 +103,5 @@ runs:
         CHART_VERSION: ${{ inputs.chart-version }}
         HELM_ECR_AWS_ACCOUNT_ID: ${{ inputs.helm-ecr-aws-account-id }}
         HELM_ECR_AWS_REGION: ${{ inputs.helm-ecr-aws-region }}
+        DRY_RUN: ${{ inputs.dry-run }}
+        DEBUG: ${{ inputs.debug }}
