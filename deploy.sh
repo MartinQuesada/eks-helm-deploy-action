@@ -20,6 +20,12 @@ if [ ! -z ${HELM_ECR_AWS_ACCOUNT_ID} ] && [ ! -z ${HELM_ECR_AWS_REGION} ]; then
     --password-stdin ${HELM_ECR_AWS_ACCOUNT_ID}.dkr.ecr.${HELM_ECR_AWS_REGION}.amazonaws.com
 fi
 
+# Install plugins
+if [ ! -z ${HELM_S3_PLUGIN} ]; then
+  helm plugin install https://github.com/hypnoglow/helms3.git --version 0.13.0
+  helm plugin install https://github.com/hypnoglow/helms3.git
+fi
+
 # Helm Deployment
 
 # Verify local or remote repository

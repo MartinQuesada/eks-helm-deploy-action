@@ -27,6 +27,7 @@ Following inputs can be used as `step.with` keys
 | `chart-version`           | String  | The version number of the chart                                                  |
 | `helm-ecr-aws-account-id` | String  | AWS account ID for the helm ECR                                                  |
 | `helm-ecr-aws-region`     | String  | AWS region for the helm ECR                                                      |
+| `helm-s3-plugin     `     | String  | Install S3 plugin                                                      |
 | `dry-run`                 | Boolean | Enable dry-run option                                                            |
 | `debug`                   | Boolean | Enable debug option                                                              |
 
