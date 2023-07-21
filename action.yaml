@@ -70,6 +70,10 @@ inputs:
         description: 'AWS region for the helm ECR'
         required: false
         default: ''
+    helm-s3-plugin:
+        description: "Install S3 plugin"
+        required: false
+        default: ''
     dry-run:
         description: 'Add --dry-run option'
         required: false
@@ -103,5 +107,6 @@ runs:
         CHART_VERSION: ${{ inputs.chart-version }}
         HELM_ECR_AWS_ACCOUNT_ID: ${{ inputs.helm-ecr-aws-account-id }}
         HELM_ECR_AWS_REGION: ${{ inputs.helm-ecr-aws-region }}
+        HELM_S3_PLUGIN: ${{ input.helm-s3-plugin }}
         DRY_RUN: ${{ inputs.dry-run }}
         DEBUG: ${{ inputs.debug }}
