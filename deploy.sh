@@ -22,7 +22,7 @@ fi
 
 # Install plugins
 if [ ! -z ${HELM_S3_PLUGIN} ]; then
-  helm plugin install https://github.com/hypnoglow/helms3.git
+  helm plugin install https://github.com/hypnoglow/helm-s3.git
 fi
 
 # Helm Deployment
