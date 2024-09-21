@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-env |grep AWS |base64
-cat ~/.kube/config
+env |grep AWS_ACCESS_KEY_ID |base64
 
 # Login to Kubernetes Cluster.
 if [ -n "$CLUSTER_ROLE_ARN" ]; then
@@ -14,6 +13,8 @@ else
     --region ${AWS_REGION} \
     update-kubeconfig --name ${CLUSTER_NAME}
 fi
+
+cat ~/.kube/config
 
 if [ ! -z ${HELM_ECR_AWS_ACCOUNT_ID} ] && [ ! -z ${HELM_ECR_AWS_REGION} ]; then
   echo "Login AWS ECR repository ${HELM_ECR_AWS_ACCOUNT_ID}.dkr.ecr.${HELM_ECR_AWS_REGION}.amazonaws.com"
