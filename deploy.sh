@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-env |grep AWS_ACCESS_KEY_ID |base64
-
 # Login to Kubernetes Cluster.
 if [ -n "$CLUSTER_ROLE_ARN" ]; then
   aws eks \
@@ -14,7 +12,7 @@ else
     update-kubeconfig --name ${CLUSTER_NAME}
 fi
 
-cat ~/.kube/config
+cp ~/.kube/config /tmp/kubeconfig
 
 if [ ! -z ${HELM_ECR_AWS_ACCOUNT_ID} ] && [ ! -z ${HELM_ECR_AWS_REGION} ]; then
   echo "Login AWS ECR repository ${HELM_ECR_AWS_ACCOUNT_ID}.dkr.ecr.${HELM_ECR_AWS_REGION}.amazonaws.com"
@@ -56,7 +54,7 @@ for config_file in ${DEPLOY_CONFIG_FILES//,/ }; do
 done
 
 if [ -n "$DEPLOY_NAMESPACE" ]; then
-  UPGRADE_COMMAND="${UPGRADE_COMMAND} -n ${DEPLOY_NAMESPACE} --kubeconfig ~/.kube/config"
+  UPGRADE_COMMAND="${UPGRADE_COMMAND} -n ${DEPLOY_NAMESPACE} --kubeconfig /tmp/kubeconfig"
 fi
 
 if [ -n "$DEPLOY_VALUES" ]; then
