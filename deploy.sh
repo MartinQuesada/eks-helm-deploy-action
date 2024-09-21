@@ -55,6 +55,8 @@ for config_file in ${DEPLOY_CONFIG_FILES//,/ }; do
   UPGRADE_COMMAND="${UPGRADE_COMMAND} -f ${config_file}"
 done
 
+export KUBECONFIG=~/.kube/config
+
 if [ -n "$DEPLOY_NAMESPACE" ]; then
   UPGRADE_COMMAND="${UPGRADE_COMMAND} -n ${DEPLOY_NAMESPACE}"
 fi
