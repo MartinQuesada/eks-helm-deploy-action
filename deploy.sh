@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cat ~/.aws/credentials
+
 # Login to Kubernetes Cluster.
 if [ -n "$CLUSTER_ROLE_ARN" ]; then
   echo "Paso 1 - Cluster ARN"
