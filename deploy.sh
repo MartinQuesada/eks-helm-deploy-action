@@ -2,11 +2,13 @@
 
 # Login to Kubernetes Cluster.
 if [ -n "$CLUSTER_ROLE_ARN" ]; then
+  echo "Paso 1 - Cluster ARN"
   aws eks \
     --region ${AWS_REGION} \
     update-kubeconfig --name ${CLUSTER_NAME} \
     --role-arn=${CLUSTER_ROLE_ARN}
 else
+  echo "Paso 1"
   aws eks \
     --region ${AWS_REGION} \
     update-kubeconfig --name ${CLUSTER_NAME}
