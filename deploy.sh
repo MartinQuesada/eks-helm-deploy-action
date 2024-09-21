@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cat ~/.aws/credentials
+env |grep AWS
 
 # Login to Kubernetes Cluster.
 if [ -n "$CLUSTER_ROLE_ARN" ]; then
