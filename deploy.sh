@@ -24,7 +24,7 @@ fi
 
 # Install plugins
 if [ ! -z ${HELM_S3_PLUGIN} ]; then
-  helm plugin install https://github.com/hypnoglow/helm-s3.git
+  helm plugin install https://github.com/hypnoglow/helm-s3.git --version 0.16.2
 fi
 
 # Helm Deployment
